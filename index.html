@@ -184,41 +184,22 @@ margin:15px 0;
 
 /* TESTIMONIAL */
 
-.testimonial-wrapper{
-overflow:hidden;
-margin-top:50px;
-}
-
 .testimonial-track{
 display:flex;
 gap:25px;
 width:max-content;
-animation:testimonial-scroll 30s linear infinite;
-}
-
-.testimonial-track:hover{
-animation-play-state:paused;
-}
-
-.testimonial-card{
-background:#141417;
-padding:25px;
-border-radius:12px;
-width:260px;
-flex-shrink:0;
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.stars{
-color:#FFD700;
-margin-bottom:10px;
+animation:testimonial-scroll 25s linear infinite;
 }
 
 @keyframes testimonial-scroll{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
+0%{
+transform:translateX(0);
 }
 
+100%{
+transform:translateX(-50%);
+}
+}
 /* FAQ */
 
 .faq-container{
@@ -402,12 +383,6 @@ Include your Razorpay Payment ID.
 
 </section>
 
-<section id="reviews">
-
-<h2>What Creators Say</h2>
-
-<div class="testimonial-wrapper">
-
 <div class="testimonial-track">
 
 <div class="testimonial-card">
@@ -430,11 +405,30 @@ Include your Razorpay Payment ID.
 <p>Professional work and fast delivery.</p>
 </div>
 
+
+<!-- DUPLICATE FOR INFINITE LOOP -->
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>CTR increased from 3% to 10%.</p>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>My gaming videos finally started getting clicks.</p>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Highly recommended for gaming channels.</p>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Professional work and fast delivery.</p>
 </div>
 
 </div>
-
-</section>
 
 <section id="faq">
 
