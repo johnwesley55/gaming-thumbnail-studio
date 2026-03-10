@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +19,14 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-html{scroll-behavior:smooth;}
+html{
+scroll-behavior:smooth;
+}
 
 body{
 color:#eaeaea;
 overflow-x:hidden;
+
 background:linear-gradient(-45deg,#0d0d0f,#141417,#0d0d0f,#1a1a22);
 background-size:400% 400%;
 animation:gradientBG 12s ease infinite;
@@ -57,7 +60,7 @@ font-size:20px;
 .navbar ul{
 list-style:none;
 display:flex;
-gap:25px;
+gap:30px;
 }
 
 .navbar a{
@@ -66,46 +69,13 @@ text-decoration:none;
 font-size:14px;
 }
 
-/* MOBILE MENU */
-
-.menu-toggle{
-display:none;
-font-size:28px;
-cursor:pointer;
-}
-
-@media(max-width:768px){
-
-.menu-toggle{
-display:block;
-}
-
-#nav-links{
-display:none;
-flex-direction:column;
-width:100%;
-background:#111;
-margin-top:15px;
-border-radius:10px;
-}
-
-#nav-links li{
-padding:12px;
-text-align:center;
-}
-
-#nav-links.active{
-display:flex;
-}
-
-}
-
 /* SECTIONS */
 
 section{
 padding:100px 12%;
 text-align:center;
 border-bottom:1px solid rgba(255,255,255,0.05);
+scroll-margin-top:120px;
 }
 
 h1{
@@ -118,7 +88,9 @@ font-size:36px;
 margin-bottom:30px;
 }
 
-p{color:#b5b5b5;}
+p{
+color:#b5b5b5;
+}
 
 /* BUTTON */
 
@@ -137,6 +109,7 @@ transition:0.3s;
 
 .btn:hover{
 transform:translateY(-3px);
+box-shadow:0 0 35px rgba(255,0,79,0.9);
 }
 
 /* HERO */
@@ -146,26 +119,10 @@ width:500px;
 max-width:100%;
 margin-top:40px;
 border-radius:12px;
+box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
-/* TRUST */
-
-.trust{
-display:flex;
-justify-content:center;
-gap:40px;
-margin-top:40px;
-flex-wrap:wrap;
-}
-
-.trust-box{
-background:#141417;
-padding:25px;
-border-radius:12px;
-width:180px;
-}
-
-/* PORTFOLIO */
+/* PORTFOLIO ENDLESS */
 
 .scroll-wrapper{
 overflow:hidden;
@@ -184,6 +141,11 @@ aspect-ratio:16/9;
 object-fit:cover;
 margin-right:20px;
 border-radius:14px;
+transition:0.4s;
+}
+
+.scroll-track img:hover{
+transform:scale(1.05);
 }
 
 @keyframes scroll{
@@ -206,6 +168,13 @@ background:#141417;
 padding:40px;
 border-radius:14px;
 width:300px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
 .price{
@@ -213,26 +182,7 @@ font-size:28px;
 margin:15px 0;
 }
 
-/* URGENCY */
-
-.urgency{
-background:#141417;
-padding:40px;
-border-radius:14px;
-max-width:700px;
-margin:40px auto;
-}
-
-/* DELIVERY TIMER */
-
-.delivery{
-background:#141417;
-padding:40px;
-border-radius:14px;
-max-width:600px;
-margin:40px auto;
-font-size:24px;
-}
+/* TESTIMONIAL */
 
 .testimonial-wrapper{
 overflow:hidden;
@@ -243,7 +193,7 @@ margin-top:50px;
 display:flex;
 gap:25px;
 width:max-content;
-animation:testimonialScroll 35s linear infinite;
+animation:testimonial-scroll 30s linear infinite;
 }
 
 .testimonial-track:hover{
@@ -254,33 +204,21 @@ animation-play-state:paused;
 background:#141417;
 padding:25px;
 border-radius:12px;
-border:1px solid rgba(255,255,255,0.05);
 width:260px;
 flex-shrink:0;
-text-align:left;
-}
-
-.testimonial-top{
-display:flex;
-align-items:center;
-gap:12px;
-margin-bottom:10px;
-}
-
-.testimonial-top img{
-width:40px;
-height:40px;
-border-radius:50%;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .stars{
 color:#FFD700;
+margin-bottom:10px;
 }
 
-@keyframes testimonialScroll{
+@keyframes testimonial-scroll{
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
 }
+
 /* FAQ */
 
 .faq-container{
@@ -288,30 +226,24 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
 max-width:900px;
-margin:auto;
+margin:40px auto 0;
 }
 
 .faq-card{
 background:#141417;
 padding:25px;
 border-radius:12px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
 text-align:left;
 }
 
-/* CONTACT */
-
-.contact-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:25px;
+.faq-card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px rgba(255,0,79,0.4);
 }
 
-.whatsapp{background:#25D366;}
-.instagram{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
-
-/* FLOAT ORDER BUTTON */
+/* FLOAT BUTTON */
 
 .order-float{
 position:fixed;
@@ -321,13 +253,15 @@ background:#ff004f;
 color:white;
 padding:16px 24px;
 border-radius:30px;
-text-decoration:none;
 font-weight:600;
+text-decoration:none;
+box-shadow:0 0 25px rgba(255,0,79,0.7);
+z-index:999;
 }
 
-/* POPUPS */
+/* SALES POPUP */
 
-#order-popup{
+#sales-popup{
 position:fixed;
 bottom:20px;
 left:20px;
@@ -340,7 +274,9 @@ display:none;
 z-index:999;
 }
 
-.viewer-counter{
+/* VIEW COUNTER */
+
+.view-counter{
 position:fixed;
 top:90px;
 right:20px;
@@ -360,9 +296,7 @@ border:1px solid rgba(255,255,255,0.1);
 
 <div class="logo">Alpha Thumbnails</div>
 
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-<ul id="nav-links">
+<ul>
 <li><a href="#portfolio">Work</a></li>
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#submit">Submit</a></li>
@@ -373,7 +307,7 @@ border:1px solid rgba(255,255,255,0.1);
 
 </div>
 
-<div class="viewer-counter">
+<div class="view-counter">
 👁 <span id="viewer-count">27</span> people viewing
 </div>
 
@@ -388,25 +322,6 @@ border:1px solid rgba(255,255,255,0.1);
 <br>
 
 <img src="thumbnail1.jpg" class="hero-thumb">
-
-<div class="trust">
-
-<div class="trust-box">
-<h3>120+</h3>
-<p>Thumbnails Delivered</p>
-</div>
-
-<div class="trust-box">
-<h3>40+</h3>
-<p>YouTube Creators</p>
-</div>
-
-<div class="trust-box">
-<h3>4.9★</h3>
-<p>Average Rating</p>
-</div>
-
-</div>
 
 </section>
 
@@ -444,7 +359,7 @@ border:1px solid rgba(255,255,255,0.1);
 
 <div class="card">
 <h3>Basic</h3>
-<div class="price">₹499</div>
+<div class="price">₹1</div>
 <p>1 Thumbnail</p>
 <a href="https://rzp.io/rzp/418B6qM" class="btn">Buy Now</a>
 </div>
@@ -465,32 +380,25 @@ border:1px solid rgba(255,255,255,0.1);
 
 </div>
 
-<div class="urgency">
-⚠️ Only 10 thumbnail slots available this week.
-</div>
-
-</section>
-
-<section class="delivery">
-
-<h2>Delivery Countdown</h2>
-
-<p>Your thumbnail will be delivered within:</p>
-
-<div id="countdown">48:00:00</div>
-
 </section>
 
 <section id="submit">
 
-<h2>Submit Your Video Details</h2>
+<h2>Submit Your Thumbnail Details</h2>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform"
-class="btn" target="_blank">
+<p>After completing payment, submit your video details below.</p>
 
-Submit Thumbnail Request
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform?usp=header"
+class="btn"
+target="_blank">
+
+Submit Details Form
 
 </a>
+
+<p style="margin-top:15px;font-size:14px;">
+Include your Razorpay Payment ID.
+</p>
 
 </section>
 
@@ -502,86 +410,24 @@ Submit Thumbnail Request
 
 <div class="testimonial-track">
 
-<!-- testimonial 1 -->
-
 <div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=1">
-<strong>Rahul Gaming</strong>
-</div>
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>CTR increased from 3% to 10%.</p>
-</div>
-
-<!-- testimonial 2 -->
-
-<div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=2">
-<strong>Arjun Plays</strong>
-</div>
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>My gaming videos finally started getting clicks.</p>
-</div>
-
-<!-- testimonial 3 -->
-
-<div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=3">
-<strong>Karthik FF</strong>
-</div>
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Professional work and fast delivery.</p>
-</div>
-
-<!-- testimonial 4 -->
-
-<div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=4">
-<strong>Vikram Plays</strong>
-</div>
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Highly recommended for gaming thumbnails.</p>
-</div>
-
-<!-- duplicate testimonials for infinite loop -->
-
-<div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=1">
-<strong>Rahul Gaming</strong>
-</div>
 <div class="stars">⭐⭐⭐⭐⭐</div>
 <p>CTR increased from 3% to 10%.</p>
 </div>
 
 <div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=2">
-<strong>Arjun Plays</strong>
-</div>
 <div class="stars">⭐⭐⭐⭐⭐</div>
 <p>My gaming videos finally started getting clicks.</p>
 </div>
 
 <div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=3">
-<strong>Karthik FF</strong>
-</div>
 <div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Professional work and fast delivery.</p>
+<p>Highly recommended for gaming channels.</p>
 </div>
 
 <div class="testimonial-card">
-<div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=4">
-<strong>Vikram Plays</strong>
-</div>
 <div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Highly recommended for gaming thumbnails.</p>
+<p>Professional work and fast delivery.</p>
 </div>
 
 </div>
@@ -611,6 +457,11 @@ Submit Thumbnail Request
 <p>Video title and concept.</p>
 </div>
 
+<div class="faq-card">
+<h3>How do I send details?</h3>
+<p>Submit using the Google form.</p>
+</div>
+
 </div>
 
 </section>
@@ -619,68 +470,40 @@ Submit Thumbnail Request
 
 <h2>Contact</h2>
 
-<div class="contact-buttons">
+<p>Questions? Message on WhatsApp.</p>
 
-<a href="https://wa.me/8870118125" class="btn whatsapp">WhatsApp</a>
-
-<a href="https://www.instagram.com/alphadesigns360.in?igsh=MW03MG9mbjZjdjNtMA==" class="btn instagram">Instagram</a>
-
-</div>
+<a href="https://wa.me/8870118125" class="btn">WhatsApp Me</a>
 
 </section>
 
 <a href="#pricing" class="order-float">Order Now</a>
 
-<div id="order-popup"></div>
+<div id="sales-popup"></div>
 
 <script>
 
-/* mobile menu */
-
-function toggleMenu(){
-document.getElementById("nav-links").classList.toggle("active");
-}
-
-/* countdown */
-
-let hours=48, minutes=0, seconds=0;
-
-setInterval(()=>{
-seconds--;
-
-if(seconds<0){seconds=59;minutes--;}
-if(minutes<0){minutes=59;hours--;}
-if(hours<0){hours=0;}
-
-document.getElementById("countdown").innerText=
-hours+":"+minutes+":"+seconds;
-
-},1000);
-
-/* order popup */
-
-const orders=[
-"Rahul from Mumbai purchased Basic Pack",
+const sales=[
+"Rahul from Mumbai purchased 1 Thumbnail",
 "Arjun from Delhi purchased Premium Pack",
-"Karthik from Chennai purchased Standard Pack",
-"Ravi from Hyderabad purchased Basic Pack"
+"Karthik from Chennai purchased Premium Pack",
+"Ravi from Hyderabad purchased 1 Thumbnail"
 ];
 
-function showOrder(){
+function showSale(){
 
-const popup=document.getElementById("order-popup");
+const popup=document.getElementById("sales-popup");
 
-popup.innerText=orders[Math.floor(Math.random()*orders.length)];
+popup.innerText=sales[Math.floor(Math.random()*sales.length)];
 
 popup.style.display="block";
 
-setTimeout(()=>{popup.style.display="none";},4000);
+setTimeout(()=>{
+popup.style.display="none";
+},4000);
 
 }
 
-setInterval(showOrder,9000);
-
-/* viewer counter */
+setInterval(showSale,8000);
 
 const viewer=document.getElementById("viewer-count");
 
@@ -692,3 +515,4 @@ viewer.innerText=Math.floor(Math.random()*20)+20;
 
 </body>
 </html>
+```
