@@ -234,8 +234,6 @@ margin:40px auto;
 font-size:24px;
 }
 
-/* TESTIMONIAL LOOP */
-
 .testimonial-wrapper{
 overflow:hidden;
 margin-top:50px;
@@ -245,7 +243,7 @@ margin-top:50px;
 display:flex;
 gap:25px;
 width:max-content;
-animation:testimonialScroll 40s linear infinite;
+animation:testimonialScroll 35s linear infinite;
 }
 
 .testimonial-track:hover{
@@ -256,6 +254,7 @@ animation-play-state:paused;
 background:#141417;
 padding:25px;
 border-radius:12px;
+border:1px solid rgba(255,255,255,0.05);
 width:260px;
 flex-shrink:0;
 text-align:left;
@@ -270,16 +269,18 @@ margin-bottom:10px;
 
 .testimonial-top img{
 width:40px;
+height:40px;
 border-radius:50%;
 }
 
-.stars{color:#FFD700;}
+.stars{
+color:#FFD700;
+}
 
 @keyframes testimonialScroll{
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
 }
-
 /* FAQ */
 
 .faq-container{
@@ -501,6 +502,52 @@ Submit Thumbnail Request
 
 <div class="testimonial-track">
 
+<!-- testimonial 1 -->
+
+<div class="testimonial-card">
+<div class="testimonial-top">
+<img src="https://i.pravatar.cc/40?img=1">
+<strong>Rahul Gaming</strong>
+</div>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>CTR increased from 3% to 10%.</p>
+</div>
+
+<!-- testimonial 2 -->
+
+<div class="testimonial-card">
+<div class="testimonial-top">
+<img src="https://i.pravatar.cc/40?img=2">
+<strong>Arjun Plays</strong>
+</div>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>My gaming videos finally started getting clicks.</p>
+</div>
+
+<!-- testimonial 3 -->
+
+<div class="testimonial-card">
+<div class="testimonial-top">
+<img src="https://i.pravatar.cc/40?img=3">
+<strong>Karthik FF</strong>
+</div>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Professional work and fast delivery.</p>
+</div>
+
+<!-- testimonial 4 -->
+
+<div class="testimonial-card">
+<div class="testimonial-top">
+<img src="https://i.pravatar.cc/40?img=4">
+<strong>Vikram Plays</strong>
+</div>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Highly recommended for gaming thumbnails.</p>
+</div>
+
+<!-- duplicate testimonials for infinite loop -->
+
 <div class="testimonial-card">
 <div class="testimonial-top">
 <img src="https://i.pravatar.cc/40?img=1">
@@ -530,11 +577,11 @@ Submit Thumbnail Request
 
 <div class="testimonial-card">
 <div class="testimonial-top">
-<img src="https://i.pravatar.cc/40?img=1">
-<strong>Rahul Gaming</strong>
+<img src="https://i.pravatar.cc/40?img=4">
+<strong>Vikram Plays</strong>
 </div>
 <div class="stars">⭐⭐⭐⭐⭐</div>
-<p>CTR increased from 3% to 10%.</p>
+<p>Highly recommended for gaming thumbnails.</p>
 </div>
 
 </div>
@@ -576,7 +623,7 @@ Submit Thumbnail Request
 
 <a href="https://wa.me/8870118125" class="btn whatsapp">WhatsApp</a>
 
-<a href="https://instagram.com/yourusername" class="btn instagram">Instagram</a>
+<a href="https://www.instagram.com/alphadesigns360.in?igsh=MW03MG9mbjZjdjNtMA==" class="btn instagram">Instagram</a>
 
 </div>
 
