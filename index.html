@@ -1,518 +1,559 @@
+   <!DOCTYPE html>
+    <html lang="en">
+    <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alpha Thumbnails</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    }
+
+    html{scroll-behavior:smooth;}
+
+    body{
+    color:#eaeaea;
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#0d0d0f,#141417,#0d0d0f,#1a1a22);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+    }
+
+    @keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(10px);
+    padding:18px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    }
+
+    .logo{
+    font-weight:700;
+    font-size:20px;
+    }
+
+    .navbar ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+    }
+
+    .navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    }
+
+    /* HAMBURGER */
+
+    .menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+    }
+
+    /* MOBILE NAV */
+
+    @media(max-width:768px){
+
+    .menu-toggle{
+    display:block;
+    }
+
+    #nav-links{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    background:#111;
+    margin-top:15px;
+    border-radius:10px;
+    }
+
+    #nav-links li{
+    padding:12px;
+    text-align:center;
+    }
+
+    #nav-links.active{
+    display:flex;
+    }
+
+    }
+
+    /* SECTIONS */
+
+    section{
+    padding:100px 12%;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    h1{font-size:52px;margin-bottom:20px;}
+    h2{font-size:36px;margin-bottom:30px;}
+
+    p{color:#b5b5b5;}
+
+    /* BUTTON */
+
+    .btn{
+    display:inline-block;
+    padding:14px 36px;
+    border-radius:8px;
+    background:#ff004f;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    margin-top:25px;
+    box-shadow:0 0 20px rgba(255,0,79,0.6);
+    transition:0.3s;
+    }
+
+    .btn:hover{
+    transform:translateY(-3px);
+    }
+
+    /* HERO */
+
+    .hero-thumb{
+    width:500px;
+    max-width:100%;
+    margin-top:40px;
+    border-radius:12px;
+    }
+
+    /* TRUST */
+
+    .trust{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+    flex-wrap:wrap;
+    }
+
+    .trust-box{
+    background:#141417;
+    padding:25px;
+    border-radius:12px;
+    width:180px;
+    }
+
+    /* PORTFOLIO */
+
+    .scroll-wrapper{overflow:hidden;margin-top:60px;}
+
+    .scroll-track{
+    display:flex;
+    width:max-content;
+    animation:scroll 30s linear infinite;
+    }
+
+    .scroll-track img{
+    width:300px;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    margin-right:20px;
+    border-radius:14px;
+    }
+
+    @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+    }
+
+    /* PRICING */
+
+    .price-box{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:50px;
+    }
+
+    .card{
+    background:#141417;
+    padding:40px;
+    border-radius:14px;
+    width:300px;
+    }
+
+    .price{
+    font-size:28px;
+    margin:15px 0;
+    }
+
+    /* URGENCY */
+
+    .urgency{
+    background:#141417;
+    padding:50px;
+    border-radius:14px;
+    max-width:700px;
+    margin:40px auto 0;
+    }
+
+    /* TESTIMONIAL LOOP */
+
+    .testimonial-wrapper{
+    overflow:hidden;
+    margin-top:50px;
+    }
+
+    .testimonial-track{
+    display:flex;
+    gap:25px;
+    width:max-content;
+    animation:testimonialScroll 40s linear infinite;
+    }
+
+    .testimonial-track:hover{
+    animation-play-state:paused;
+    }
+
+    .testimonial-card{
+    background:#141417;
+    padding:25px;
+    border-radius:12px;
+    width:260px;
+    flex-shrink:0;
+    text-align:left;
+    }
+
+    .testimonial-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+    }
+
+    .testimonial-top img{
+    width:40px;
+    border-radius:50%;
+    }
+
+    .stars{color:#FFD700;}
+
+    @keyframes testimonialScroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+    }
+
+    /* FAQ */
+
+    .faq-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    max-width:900px;
+    margin:auto;
+    }
+
+    .faq-card{
+    background:#141417;
+    padding:25px;
+    border-radius:12px;
+    text-align:left;
+    }
+
+    /* CONTACT */
+
+    .contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:25px;
+    }
+
+    .whatsapp{background:#25D366;}
+    .instagram{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
+
+    /* FLOAT */
+
+    .order-float{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#ff004f;
+    color:white;
+    padding:16px 24px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    }
+
+    </style>
+    </head>
+
+    <body>
+
+    <div class="navbar">
+
+    <div class="logo">Alpha Thumbnails</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul id="nav-links">
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#submit">Submit</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    </div>
+
+    <section>
+
+    <h1>Thumbnails That Increase Your YouTube Clicks</h1>
+
+    <p>Strategic gaming thumbnails designed to boost CTR.</p>
+
+    <a href="#pricing" class="btn">Get My Thumbnail</a>
+
+    <br>
+
+    <img src="thumbnail1.jpg" class="hero-thumb">
+
+    <div class="trust">
+
+    <div class="trust-box">
+    <h3>120+</h3>
+    <p>Thumbnails Delivered</p>
+    </div>
+
+    <div class="trust-box">
+    <h3>40+</h3>
+    <p>YouTube Creators</p>
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Alpha Thumbnails</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-color:#eaeaea;
-overflow-x:hidden;
-
-background:linear-gradient(-45deg,#0d0d0f,#141417,#0d0d0f,#1a1a22);
-background-size:400% 400%;
-animation:gradientBG 12s ease infinite;
-}
-
-@keyframes gradientBG{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-/* NAVBAR */
-
-.navbar{
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.85);
-backdrop-filter:blur(10px);
-padding:18px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-}
-
-.logo{
-font-weight:700;
-font-size:20px;
-}
-
-.navbar ul{
-list-style:none;
-display:flex;
-gap:30px;
-}
-
-.navbar a{
-color:white;
-text-decoration:none;
-font-size:14px;
-}
-
-/* SECTIONS */
-
-section{
-padding:100px 12%;
-text-align:center;
-border-bottom:1px solid rgba(255,255,255,0.05);
-scroll-margin-top:120px;
-}
-
-h1{
-font-size:52px;
-margin-bottom:20px;
-}
-
-h2{
-font-size:36px;
-margin-bottom:30px;
-}
-
-p{
-color:#b5b5b5;
-}
-
-/* BUTTON */
-
-.btn{
-display:inline-block;
-padding:14px 36px;
-border-radius:8px;
-background:#ff004f;
-color:white;
-text-decoration:none;
-font-weight:600;
-margin-top:25px;
-box-shadow:0 0 20px rgba(255,0,79,0.6);
-transition:0.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 0 35px rgba(255,0,79,0.9);
-}
-
-/* HERO */
-
-.hero-thumb{
-width:500px;
-max-width:100%;
-margin-top:40px;
-border-radius:12px;
-box-shadow:0 20px 60px rgba(0,0,0,0.7);
-}
-
-/* PORTFOLIO ENDLESS */
-
-.scroll-wrapper{
-overflow:hidden;
-margin-top:60px;
-}
-
-.scroll-track{
-display:flex;
-width:max-content;
-animation:scroll 30s linear infinite;
-}
-
-.scroll-track img{
-width:300px;
-aspect-ratio:16/9;
-object-fit:cover;
-margin-right:20px;
-border-radius:14px;
-transition:0.4s;
-}
-
-.scroll-track img:hover{
-transform:scale(1.05);
-}
-
-@keyframes scroll{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
-
-/* PRICING */
-
-.price-box{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-margin-top:50px;
-}
-
-.card{
-background:#141417;
-padding:40px;
-border-radius:14px;
-width:300px;
-border:1px solid rgba(255,255,255,0.05);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
-}
-
-.price{
-font-size:28px;
-margin:15px 0;
-}
-
-/* TESTIMONIAL */
-
-.testimonial-wrapper{
-overflow:hidden;
-margin-top:50px;
-}
-
-.testimonial-track{
-display:flex;
-gap:25px;
-width:max-content;
-animation:testimonial-scroll 30s linear infinite;
-}
-
-.testimonial-track:hover{
-animation-play-state:paused;
-}
-
-.testimonial-card{
-background:#141417;
-padding:25px;
-border-radius:12px;
-width:260px;
-flex-shrink:0;
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.stars{
-color:#FFD700;
-margin-bottom:10px;
-}
-
-@keyframes testimonial-scroll{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
-
-/* FAQ */
-
-.faq-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-max-width:900px;
-margin:40px auto 0;
-}
-
-.faq-card{
-background:#141417;
-padding:25px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,0.05);
-transition:0.3s;
-text-align:left;
-}
-
-.faq-card:hover{
-transform:translateY(-6px);
-box-shadow:0 0 25px rgba(255,0,79,0.4);
-}
-
-/* FLOAT BUTTON */
-
-.order-float{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#ff004f;
-color:white;
-padding:16px 24px;
-border-radius:30px;
-font-weight:600;
-text-decoration:none;
-box-shadow:0 0 25px rgba(255,0,79,0.7);
-z-index:999;
-}
-
-/* SALES POPUP */
-
-#sales-popup{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#141417;
-padding:15px 20px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.1);
-font-size:14px;
-display:none;
-z-index:999;
-}
-
-/* VIEW COUNTER */
-
-.view-counter{
-position:fixed;
-top:90px;
-right:20px;
-background:#141417;
-padding:10px 15px;
-border-radius:8px;
-font-size:13px;
-border:1px solid rgba(255,255,255,0.1);
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="navbar">
-
-<div class="logo">Alpha Thumbnails</div>
-
-<ul>
-<li><a href="#portfolio">Work</a></li>
-<li><a href="#pricing">Pricing</a></li>
-<li><a href="#submit">Submit</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-</div>
-
-<div class="view-counter">
-👁 <span id="viewer-count">27</span> people viewing
-</div>
-
-<section>
-
-<h1>Thumbnails That Increase Your YouTube Clicks</h1>
-
-<p>Strategic gaming thumbnails designed to boost CTR.</p>
-
-<a href="#pricing" class="btn">Get My Thumbnail</a>
-
-<br>
-
-<img src="thumbnail1.jpg" class="hero-thumb">
-
-</section>
-
-<section id="portfolio">
-
-<h2>My Work</h2>
-
-<div class="scroll-wrapper">
-
-<div class="scroll-track">
-
-<img src="thumbnail1.jpg">
-<img src="thumbnail2.png">
-<img src="thumbnail3.png">
-<img src="thumbnail4.jpg">
-<img src="thumbnail5.jpg">
-
-<img src="thumbnail1.jpg">
-<img src="thumbnail2.png">
-<img src="thumbnail3.png">
-<img src="thumbnail4.jpg">
-<img src="thumbnail5.jpg">
-
-</div>
-
-</div>
-
-</section>
-
-<section id="pricing">
-
-<h2>Pricing</h2>
-
-<div class="price-box">
-
-<div class="card">
-<h3>Basic</h3>
-<div class="price">₹499</div>
-<p>1 Thumbnail</p>
-<a href="https://rzp.io/rzp/418B6qM" class="btn">Buy Now</a>
-</div>
-
-<div class="card">
-<h3>Standard</h3>
-<div class="price">₹899</div>
-<p>2 Thumbnails</p>
-<a href="https://rzp.io/rzp/4AYdQRT" class="btn">Buy Now</a>
-</div>
+    <div class="trust-box">
+    <h3>4.9★</h3>
+    <p>Average Rating</p>
+    </div>
 
-<div class="card">
-<h3>Premium</h3>
-<div class="price">₹1499</div>
-<p>4 Thumbnails</p>
-<a href="https://rzp.io/rzp/5rMQOPl" class="btn">Buy Now</a>
-</div>
+    </div>
 
-</div>
+    </section>
 
-</section>
+    <section id="portfolio">
 
-<section id="submit">
+    <h2>My Work</h2>
+
+    <div class="scroll-wrapper">
+    <div class="scroll-track">
 
-<h2>Submit Your Thumbnail Details</h2>
+    <img src="thumbnail1.jpg">
+    <img src="thumbnail2.png">
+    <img src="thumbnail3.png">
+    <img src="thumbnail4.jpg">
+    <img src="thumbnail5.jpg">
+
+    <img src="thumbnail1.jpg">
+    <img src="thumbnail2.png">
+    <img src="thumbnail3.png">
+    <img src="thumbnail4.jpg">
+    <img src="thumbnail5.jpg">
+
+    </div>
+    </div>
+
+    </section>
+
+    <section id="pricing">
+
+    <h2>Pricing</h2>
+
+    <div class="price-box">
+
+    <div class="card">
+    <h3>Basic</h3>
+    <div class="price">₹499</div>
+    <p>1 Thumbnail</p>
+    <a href="https://rzp.io/rzp/418B6qM" class="btn">Buy Now</a>
+    </div>
+
+    <div class="card">
+    <h3>Standard</h3>
+    <div class="price">₹899</div>
+    <p>2 Thumbnails</p>
+    <a href="https://rzp.io/rzp/4AYdQRT" class="btn">Buy Now</a>
+    </div>
+
+    <div class="card">
+    <h3>Premium</h3>
+    <div class="price">₹1499</div>
+    <p>4 Thumbnails</p>
+    <a href="https://rzp.io/rzp/5rMQOPl" class="btn">Buy Now</a>
+    </div>
 
-<p>After completing payment, submit your video details below.</p>
+    </div>
+
+    <div class="urgency">
+    ⚠️ Only 10 thumbnail slots available this week.
+    </div>
+
+    </section>
+
+    <section id="submit">
+
+    <h2>Submit Your Video Details</h2>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform?usp=header"
-class="btn"
-target="_blank">
+    <p style="max-width:600px;margin:auto;">
+    After completing your payment, submit your video details so I can design your thumbnail.
+    </p>
 
-Submit Details Form
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform"
+    class="btn"
+    target="_blank">
 
-</a>
+    Submit Thumbnail Request
 
-<p style="margin-top:15px;font-size:14px;">
-Include your Razorpay Payment ID.
-</p>
+    </a>
 
-</section>
+    <p style="margin-top:20px;font-size:14px;color:#aaa;">
 
-<section id="reviews">
+    ✔ Include your Razorpay Payment ID  
+    <br>
+    ✔ Add your YouTube Video Title  
+    <br>
+    ✔ Add reference images if needed  
 
-<h2>What Creators Say</h2>
+    </p>
 
-<div class="testimonial-wrapper">
+    </section>
 
-<div class="testimonial-track">
+    <section id="reviews">
 
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>CTR increased from 3% to 10%.</p>
-</div>
+    <h2>What Creators Say</h2>
 
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>My gaming videos finally started getting clicks.</p>
-</div>
+    <div class="testimonial-wrapper">
 
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Highly recommended for gaming channels.</p>
-</div>
+    <div class="testimonial-track">
 
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Professional work and fast delivery.</p>
-</div>
+    <div class="testimonial-card">
+    <div class="testimonial-top">
+    <img src="https://i.pravatar.cc/40?img=1">
+    <strong>Rahul Gaming</strong>
+    </div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>CTR increased from 3% to 10%.</p>
+    </div>
 
-</div>
+    <div class="testimonial-card">
+    <div class="testimonial-top">
+    <img src="https://i.pravatar.cc/40?img=2">
+    <strong>Arjun Plays</strong>
+    </div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>My videos finally started getting clicks.</p>
+    </div>
 
-</div>
+    <div class="testimonial-card">
+    <div class="testimonial-top">
+    <img src="https://i.pravatar.cc/40?img=3">
+    <strong>Karthik FF</strong>
+    </div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>Professional work and fast delivery.</p>
+    </div>
 
-</section>
+    <!-- duplicate -->
 
-<section id="faq">
+    <div class="testimonial-card">
+    <div class="testimonial-top">
+    <img src="https://i.pravatar.cc/40?img=1">
+    <strong>Rahul Gaming</strong>
+    </div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>CTR increased from 3% to 10%.</p>
+    </div>
 
-<h2>FAQ</h2>
+    </div>
 
-<div class="faq-container">
+    </div>
 
-<div class="faq-card">
-<h3>How fast is delivery?</h3>
-<p>48 hours.</p>
-</div>
+    </section>
 
-<div class="faq-card">
-<h3>Do you offer revisions?</h3>
-<p>Yes, 1 free revision.</p>
-</div>
+    <section id="faq">
 
-<div class="faq-card">
-<h3>What do you need?</h3>
-<p>Video title and concept.</p>
-</div>
+    <h2>FAQ</h2>
 
-<div class="faq-card">
-<h3>How do I send details?</h3>
-<p>Submit using the Google form.</p>
-</div>
+    <div class="faq-container">
 
-</div>
+    <div class="faq-card">
+    <h3>How fast is delivery?</h3>
+    <p>48 hours.</p>
+    </div>
 
-</section>
+    <div class="faq-card">
+    <h3>Do you offer revisions?</h3>
+    <p>Yes, 1 free revision.</p>
+    </div>
 
-<section id="contact">
+    <div class="faq-card">
+    <h3>What do you need?</h3>
+    <p>Video title and concept.</p>
+    </div>
 
-<h2>Contact</h2>
+    </div>
 
-<p>Questions? Message on WhatsApp.</p>
+    </section>
 
-<a href="https://wa.me/8870118125" class="btn">WhatsApp Me</a>
+    <section id="contact">
 
-</section>
+    <h2>Contact</h2>
 
-<a href="#pricing" class="order-float">Order Now</a>
+    <p>Have questions? Message me.</p>
 
-<div id="sales-popup"></div>
+    <div class="contact-buttons">
 
-<script>
+    <a href="https://wa.me/8870118125" class="btn whatsapp">WhatsApp</a>
 
-const sales=[
-"Rahul from Mumbai purchased 1 Thumbnail",
-"Arjun from Delhi purchased Premium Pack",
-"Karthik from Chennai purchased Premium Pack",
-"Ravi from Hyderabad purchased 1 Thumbnail"
-];
+    <a href="https://www.instagram.com/alphadesigns360.in?igsh=MW03MG9mbjZjdjNtMA==" class="btn instagram">Instagram</a>
 
-function showSale(){
+    </div>
 
-const popup=document.getElementById("sales-popup");
+    </section>
 
-popup.innerText=sales[Math.floor(Math.random()*sales.length)];
+    <a href="#pricing" class="order-float">Order Now</a>
 
-popup.style.display="block";
+    <script>
 
-setTimeout(()=>{
-popup.style.display="none";
-},4000);
+    function toggleMenu(){
 
-}
+    const nav=document.getElementById("nav-links");
 
-setInterval(showSale,8000);
+    nav.classList.toggle("active");
 
-const viewer=document.getElementById("viewer-count");
+    }
 
-setInterval(()=>{
-viewer.innerText=Math.floor(Math.random()*20)+20;
-},4000);
+    </script>
 
-</script>
-
-</body>
-</html>
-```
+    </body>
+    </html>
+    ```
