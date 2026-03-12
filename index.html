@@ -39,11 +39,25 @@ animation:gradientBG 12s ease infinite;
 100%{background-position:0% 50%;}
 }
 
+/* URGENCY BANNER */
+
+.urgency-banner{
+background:#ff004f;
+text-align:center;
+padding:10px;
+font-size:14px;
+font-weight:600;
+color:white;
+position:sticky;
+top:0;
+z-index:1200;
+}
+
 /* NAVBAR */
 
 .navbar{
 position:sticky;
-top:0;
+top:40px;
 background:rgba(0,0,0,0.85);
 backdrop-filter:blur(10px);
 padding:18px 10%;
@@ -68,6 +82,14 @@ gap:30px;
 color:white;
 text-decoration:none;
 font-size:14px;
+}
+
+/* MOBILE MENU */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
 }
 
 /* SECTIONS */
@@ -121,6 +143,35 @@ max-width:100%;
 margin-top:40px;
 border-radius:12px;
 box-shadow:0 20px 60px rgba(0,0,0,0.7);
+}
+
+/* CLIENT LOGOS */
+
+.client-section{
+padding:70px 12%;
+text-align:center;
+}
+
+.client-logos{
+display:flex;
+gap:60px;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.client-logos img{
+height:45px;
+opacity:0.7;
+filter:grayscale(100%);
+transition:0.3s;
+}
+
+.client-logos img:hover{
+opacity:1;
+filter:none;
+transform:scale(1.1);
 }
 
 /* PORTFOLIO LOOP */
@@ -192,7 +243,6 @@ width:max-content;
 animation:testimonial-scroll 25s linear infinite;
 }
 
-
 .testimonial-card{
 background:#141417;
 padding:25px;
@@ -201,7 +251,6 @@ width:260px;
 flex-shrink:0;
 border:1px solid rgba(255,255,255,0.05);
 box-shadow:0 10px 25px rgba(0,0,0,0.5);
-transition:0.3s;
 }
 
 .stars{
@@ -280,14 +329,55 @@ font-size:13px;
 border:1px solid rgba(255,255,255,0.1);
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+.navbar ul{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#0d0d0f;
+flex-direction:column;
+align-items:center;
+gap:20px;
+padding:30px 0;
+display:none;
+}
+
+.navbar ul.active{
+display:flex;
+}
+
+h1{
+font-size:36px;
+}
+
+.hero-thumb{
+width:100%;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="urgency-banner">
+🔥 Only <span id="slots">3</span> thumbnail slots left today
+</div>
+
 <div class="navbar">
 <div class="logo">Alpha Thumbnails</div>
-<ul>
+<div class="menu-toggle" id="menu-toggle">☰</div>
+
+<ul id="nav-menu">
 <li><a href="#portfolio">Work</a></li>
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#submit">Submit</a></li>
@@ -315,12 +405,27 @@ border:1px solid rgba(255,255,255,0.1);
 
 </section>
 
+<section class="client-section">
+
+<h2>Creators I Worked With</h2>
+
+<div class="client-logos">
+
+<img src="client1.png">
+<img src="client2.png">
+<img src="client3.png">
+<img src="client4.png">
+<img src="client5.png">
+
+</div>
+
+</section>
+
 <section id="portfolio">
 
 <h2>My Work</h2>
 
 <div class="scroll-wrapper">
-
 <div class="scroll-track">
 
 <img src="thumbnail1.jpg">
@@ -336,7 +441,6 @@ border:1px solid rgba(255,255,255,0.1);
 <img src="thumbnail5.jpg">
 
 </div>
-
 </div>
 
 </section>
@@ -386,11 +490,9 @@ Submit Details Form
 </section>
 
 <section id="reviews">
-
 <h2>What Creators Say</h2>
 
 <div class="testimonial-wrapper">
-
 <div class="testimonial-track">
 
 <div class="testimonial-card">
@@ -417,34 +519,8 @@ Submit Details Form
 <h4>- Ravi Live</h4>
 </div>
 
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>CTR increased from 3% to 10%.</p>
-<h4>- Rahul Gaming</h4>
 </div>
-
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Professional thumbnails. Highly recommended.</p>
-<h4>- Arjun Plays</h4>
 </div>
-
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>My videos finally started getting clicks.</p>
-<h4>- Karthik YT</h4>
-</div>
-
-<div class="testimonial-card">
-<div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Fast delivery and great quality.</p>
-<h4>- Ravi Live</h4>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <section id="faq">
@@ -493,6 +569,13 @@ Submit Details Form
 
 <script>
 
+const menuToggle=document.getElementById("menu-toggle");
+const navMenu=document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click",()=>{
+navMenu.classList.toggle("active");
+});
+
 const sales=[
 "Rahul from Mumbai purchased 1 Thumbnail",
 "Arjun from Delhi purchased Premium Pack",
@@ -501,17 +584,13 @@ const sales=[
 ];
 
 function showSale(){
-
 const popup=document.getElementById("sales-popup");
-
 popup.innerText=sales[Math.floor(Math.random()*sales.length)];
-
 popup.style.display="block";
 
 setTimeout(()=>{
 popup.style.display="none";
 },4000);
-
 }
 
 setInterval(showSale,8000);
@@ -521,6 +600,12 @@ const viewer=document.getElementById("viewer-count");
 setInterval(()=>{
 viewer.innerText=Math.floor(Math.random()*20)+20;
 },4000);
+
+let slots=document.getElementById("slots");
+
+setInterval(()=>{
+slots.innerText=Math.floor(Math.random()*3)+1;
+},12000);
 
 </script>
 
