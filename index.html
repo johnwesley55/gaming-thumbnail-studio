@@ -27,7 +27,6 @@ scroll-behavior:smooth;
 body{
 color:#eaeaea;
 overflow-x:hidden;
-
 background:linear-gradient(-45deg,#0d0d0f,#141417,#0d0d0f,#1a1a22);
 background-size:400% 400%;
 animation:gradientBG 12s ease infinite;
@@ -143,7 +142,6 @@ border-radius:12px;
 box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
-
 /* PORTFOLIO LOOP */
 
 .scroll-wrapper{
@@ -203,7 +201,7 @@ margin:15px 0;
 
 .testimonial-wrapper{
 overflow:hidden;
-margin-top:50px;
+margin-top:30px;
 }
 
 .testimonial-track{
@@ -272,25 +270,11 @@ box-shadow:0 0 25px rgba(255,0,79,0.7);
 z-index:999;
 }
 
-/* SALES POPUP */
-
-#sales-popup{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#141417;
-padding:15px 20px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.1);
-font-size:14px;
-display:none;
-}
-
 /* VIEW COUNTER */
 
 .view-counter{
 position:fixed;
-top:90px;
+top:120px;
 right:20px;
 background:#141417;
 padding:10px 15px;
@@ -345,9 +329,7 @@ width:100%;
 
 <div class="navbar">
 <div class="logo">Alpha Thumbnails</div>
-<div class="menu-toggle" id="menu-toggle">☰</div>
-
-<ul id="nav-menu">
+<ul>
 <li><a href="#portfolio">Work</a></li>
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#submit">Submit</a></li>
@@ -375,7 +357,6 @@ width:100%;
 
 </section>
 
-
 <section id="portfolio">
 <h2>My Work</h2>
 
@@ -396,10 +377,10 @@ width:100%;
 
 </div>
 </div>
-
 </section>
 
 <section id="pricing">
+
 <h2>Pricing</h2>
 
 <div class="price-box">
@@ -426,7 +407,6 @@ width:100%;
 </div>
 
 </div>
-
 </section>
 
 <section id="submit">
@@ -435,10 +415,7 @@ width:100%;
 
 <p>After completing payment, submit your video details.</p>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform"
-class="btn" target="_blank">
-Submit Details Form
-</a>
+<a href="#" class="btn">Submit Details Form</a>
 
 </section>
 
@@ -447,7 +424,6 @@ Submit Details Form
 <h2>What Creators Say</h2>
 
 <div class="testimonial-wrapper">
-
 <div class="testimonial-track">
 
 <div class="testimonial-card">
@@ -474,8 +450,33 @@ Submit Details Form
 <h4>- Ravi Live</h4>
 </div>
 
+<!-- duplicate for loop -->
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>CTR increased from 3% to 10%.</p>
+<h4>- Rahul Gaming</h4>
 </div>
 
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Professional thumbnails.</p>
+<h4>- Arjun Plays</h4>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>My videos finally started getting clicks.</p>
+<h4>- Karthik YT</h4>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Fast delivery and great quality.</p>
+<h4>- Ravi Live</h4>
+</div>
+
+</div>
 </div>
 
 </section>
@@ -522,30 +523,6 @@ Submit Details Form
 
 <a href="#pricing" class="order-float">Order Now</a>
 
-<div id="sales-popup"></div>
-
-<script>
-
-const menuToggle=document.getElementById("menu-toggle");
-const navMenu=document.getElementById("nav-menu");
-
-menuToggle.addEventListener("click",()=>{
-navMenu.classList.toggle("active");
-});
-
-const viewer=document.getElementById("viewer-count");
-
-setInterval(()=>{
-viewer.innerText=Math.floor(Math.random()*20)+20;
-},4000);
-
-let slots=document.getElementById("slots");
-
-setInterval(()=>{
-slots.innerText=Math.floor(Math.random()*3)+1;
-},12000);
-
-</script>
-
 </body>
 </html>
+
