@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,15 +39,13 @@ animation:gradientBG 12s ease infinite;
 100%{background-position:0% 50%;}
 }
 
-/* URGENCY BANNER */
+/* URGENCY */
 
 .urgency-banner{
 background:#ff004f;
 text-align:center;
 padding:10px;
-font-size:14px;
 font-weight:600;
-color:white;
 position:sticky;
 top:0;
 z-index:1200;
@@ -72,9 +71,9 @@ font-size:20px;
 }
 
 .navbar ul{
-list-style:none;
 display:flex;
 gap:30px;
+list-style:none;
 }
 
 .navbar a{
@@ -82,6 +81,8 @@ color:white;
 text-decoration:none;
 font-size:14px;
 }
+
+/* MOBILE MENU */
 
 .menu-toggle{
 display:none;
@@ -95,7 +96,6 @@ section{
 padding:100px 12%;
 text-align:center;
 border-bottom:1px solid rgba(255,255,255,0.05);
-scroll-margin-top:120px;
 }
 
 h1{
@@ -142,12 +142,16 @@ border-radius:12px;
 box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
-/* PORTFOLIO LOOP */
+/* ===== FULL WIDTH SLIDERS ===== */
 
-.scroll-wrapper{
+.scroll-wrapper,
+.testimonial-wrapper{
+width:100vw;
+margin-left:calc(-50vw + 50%);
 overflow:hidden;
-margin-top:60px;
 }
+
+/* PORTFOLIO */
 
 .scroll-track{
 display:flex;
@@ -184,25 +188,9 @@ padding:40px;
 border-radius:14px;
 width:300px;
 border:1px solid rgba(255,255,255,0.05);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
-}
-
-.price{
-font-size:28px;
-margin:15px 0;
 }
 
 /* TESTIMONIALS */
-
-.testimonial-wrapper{
-overflow:hidden;
-margin-top:30px;
-}
 
 .testimonial-track{
 display:flex;
@@ -218,7 +206,6 @@ border-radius:14px;
 width:260px;
 flex-shrink:0;
 border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
 .stars{
@@ -227,8 +214,8 @@ margin-bottom:10px;
 }
 
 .testimonial-card h4{
-font-size:13px;
 color:#ff004f;
+font-size:13px;
 margin-top:10px;
 }
 
@@ -244,14 +231,7 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
 max-width:900px;
-margin:40px auto 0;
-}
-
-.faq-card{
-background:#141417;
-padding:25px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,0.05);
+margin:auto;
 }
 
 /* FLOAT BUTTON */
@@ -265,9 +245,7 @@ color:white;
 padding:16px 24px;
 border-radius:30px;
 font-weight:600;
-text-decoration:none;
 box-shadow:0 0 25px rgba(255,0,79,0.7);
-z-index:999;
 }
 
 /* VIEW COUNTER */
@@ -280,7 +258,6 @@ background:#141417;
 padding:10px 15px;
 border-radius:8px;
 font-size:13px;
-border:1px solid rgba(255,255,255,0.1);
 }
 
 /* MOBILE */
@@ -299,7 +276,6 @@ width:100%;
 background:#0d0d0f;
 flex-direction:column;
 align-items:center;
-gap:20px;
 padding:30px 0;
 display:none;
 }
@@ -328,8 +304,12 @@ width:100%;
 </div>
 
 <div class="navbar">
+
 <div class="logo">Alpha Thumbnails</div>
-<ul>
+
+<div class="menu-toggle" id="menu-toggle">☰</div>
+
+<ul id="nav-menu">
 <li><a href="#portfolio">Work</a></li>
 <li><a href="#pricing">Pricing</a></li>
 <li><a href="#submit">Submit</a></li>
@@ -337,6 +317,7 @@ width:100%;
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
 </div>
 
 <div class="view-counter">
@@ -358,6 +339,7 @@ width:100%;
 </section>
 
 <section id="portfolio">
+
 <h2>My Work</h2>
 
 <div class="scroll-wrapper">
@@ -377,6 +359,7 @@ width:100%;
 
 </div>
 </div>
+
 </section>
 
 <section id="pricing">
@@ -407,6 +390,7 @@ width:100%;
 </div>
 
 </div>
+
 </section>
 
 <section id="submit">
@@ -424,6 +408,7 @@ width:100%;
 <h2>What Creators Say</h2>
 
 <div class="testimonial-wrapper">
+
 <div class="testimonial-track">
 
 <div class="testimonial-card">
@@ -450,7 +435,7 @@ width:100%;
 <h4>- Ravi Live</h4>
 </div>
 
-<!-- duplicate for loop -->
+<!-- duplicate -->
 
 <div class="testimonial-card">
 <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -477,6 +462,7 @@ width:100%;
 </div>
 
 </div>
+
 </div>
 
 </section>
@@ -523,6 +509,17 @@ width:100%;
 
 <a href="#pricing" class="order-float">Order Now</a>
 
+<script>
+
+const menuToggle=document.getElementById("menu-toggle");
+const navMenu=document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click",()=>{
+navMenu.classList.toggle("active");
+});
+
+</script>
+
 </body>
 </html>
-
+```
