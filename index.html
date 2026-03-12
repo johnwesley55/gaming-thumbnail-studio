@@ -84,8 +84,6 @@ text-decoration:none;
 font-size:14px;
 }
 
-/* MOBILE MENU */
-
 .menu-toggle{
 display:none;
 font-size:28px;
@@ -145,34 +143,6 @@ border-radius:12px;
 box-shadow:0 20px 60px rgba(0,0,0,0.7);
 }
 
-/* CLIENT LOGOS */
-
-.client-section{
-padding:70px 12%;
-text-align:center;
-}
-
-.client-logos{
-display:flex;
-gap:60px;
-justify-content:center;
-align-items:center;
-flex-wrap:wrap;
-margin-top:30px;
-}
-
-.client-logos img{
-height:45px;
-opacity:0.7;
-filter:grayscale(100%);
-transition:0.3s;
-}
-
-.client-logos img:hover{
-opacity:1;
-filter:none;
-transform:scale(1.1);
-}
 
 /* PORTFOLIO LOOP */
 
@@ -405,24 +375,8 @@ width:100%;
 
 </section>
 
-<section class="client-section">
-
-<h2>Creators I Worked With</h2>
-
-<div class="client-logos">
-
-<img src="client1.png">
-<img src="client2.png">
-<img src="client3.png">
-<img src="client4.png">
-<img src="client5.png">
-
-</div>
-
-</section>
 
 <section id="portfolio">
-
 <h2>My Work</h2>
 
 <div class="scroll-wrapper">
@@ -446,7 +400,6 @@ width:100%;
 </section>
 
 <section id="pricing">
-
 <h2>Pricing</h2>
 
 <div class="price-box">
@@ -482,7 +435,7 @@ width:100%;
 
 <p>After completing payment, submit your video details.</p>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform?usp=header"
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSenVWJWv2B5u9WmrJqk9VATryt03xalI6gFplbdiIro5NciYw/viewform"
 class="btn" target="_blank">
 Submit Details Form
 </a>
@@ -490,9 +443,11 @@ Submit Details Form
 </section>
 
 <section id="reviews">
+
 <h2>What Creators Say</h2>
 
 <div class="testimonial-wrapper">
+
 <div class="testimonial-track">
 
 <div class="testimonial-card">
@@ -503,7 +458,7 @@ Submit Details Form
 
 <div class="testimonial-card">
 <div class="stars">⭐⭐⭐⭐⭐</div>
-<p>Professional thumbnails. Highly recommended.</p>
+<p>Professional thumbnails.</p>
 <h4>- Arjun Plays</h4>
 </div>
 
@@ -520,7 +475,9 @@ Submit Details Form
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <section id="faq">
@@ -575,25 +532,6 @@ const navMenu=document.getElementById("nav-menu");
 menuToggle.addEventListener("click",()=>{
 navMenu.classList.toggle("active");
 });
-
-const sales=[
-"Rahul from Mumbai purchased 1 Thumbnail",
-"Arjun from Delhi purchased Premium Pack",
-"Karthik from Chennai purchased Premium Pack",
-"Ravi from Hyderabad purchased 1 Thumbnail"
-];
-
-function showSale(){
-const popup=document.getElementById("sales-popup");
-popup.innerText=sales[Math.floor(Math.random()*sales.length)];
-popup.style.display="block";
-
-setTimeout(()=>{
-popup.style.display="none";
-},4000);
-}
-
-setInterval(showSale,8000);
 
 const viewer=document.getElementById("viewer-count");
 
